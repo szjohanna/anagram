@@ -47,5 +47,6 @@
     <projectCompileDependency>org.jetbrains.kotlin:kotlin-stdlib-common:1.2.60</projectCompileDependency>
     <projectCompileDependency>org.jetbrains:annotations:13.0</projectCompileDependency>
     <projectCompileDependency>commons-io:commons-io:2.15.1</projectCompileDependency>
+    <projectCompileDependency>com.googlecode.json-simple:json-simple:1.1.1</projectCompileDependency>
     <warSourceDirectory>C:\Users\johan\Documents\anagram\src\main\webapp</warSourceDirectory>
 </liberty-plugin-config>
