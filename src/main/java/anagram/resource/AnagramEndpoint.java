@@ -25,8 +25,9 @@ public class AnagramEndpoint {
         //Call method that checks for anagrams -> anagrams List
         Logic.checkForAnagrams();
         //Loop through anagrams List and get info of each -> save to anagraminfo List
+        Logic.filterData();
 
-        return Response.ok(Model.getAnagrams()).build();
+        return Response.ok(Model.getAnagramdata()).build();
     }
 
 
