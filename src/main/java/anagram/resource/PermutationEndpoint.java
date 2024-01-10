@@ -1,5 +1,7 @@
 package anagram.resource;
 
+import anagram.model.Model;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,7 +16,11 @@ public class PermutationEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkPermutations() {
 
-        return Response.ok("test").build();
+        String word = "boat";
+
+        Model.getAllpermutations().clear();
+        new Logic().printDistinctPermutations(word, "");
+        return Response.ok(Model.getAllpermutations()).build();
     }
 
 
