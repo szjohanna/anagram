@@ -14,11 +14,10 @@ public class AnagramEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response checkForAnagarams() throws Exception {
+    public Response checkForAnagarams(@QueryParam("inputWord") String word) throws Exception {
 
 
         //Create the permutation List
-        String word = "tool";
         Model.getAllpermutations().clear();
         new Logic().printDistinctPermutations(word, "");
 

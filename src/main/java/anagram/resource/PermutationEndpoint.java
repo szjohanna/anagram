@@ -14,9 +14,7 @@ public class PermutationEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response checkPermutations() {
-
-        String word = "boat";
+    public Response checkPermutations(@QueryParam("inputWord") String word) {
 
         Model.getAllpermutations().clear();
         new Logic().printDistinctPermutations(word, "");

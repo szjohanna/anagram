@@ -1,7 +1,39 @@
 <html>
-
 <body>
-    <h1>It works</h1>
-</body>
 
+<div class="inputWord" id="inputWordID"
+     style="position: absolute; top: 110px; left: 30px;">
+    <form id="wordForm" method="post">
+        Enter word: <input style="margin-bottom: 5px; width: 220px;" type="text" id="wordinput"
+                           name="inputWord" value="" placeholder="Enter word...">
+
+        <button type="button" onclick="submitForm('permutations')">All permutations</button>
+
+        <button type="button" onclick="submitForm('anagrams')">All anagrams</button>
+    </form>
+
+    <script>
+        function submitForm(action) {
+            var form = document.getElementById('wordForm');
+            var wordInput = document.getElementById('wordinput').value;
+
+            // Set the form action based on the button clicked
+            if (action === 'permutations') {
+                form.action = 'api/save/saveWordPermutations'; // Adjust the endpoint accordingly
+            } else if (action === 'anagrams') {
+                form.action = 'api/save/saveWordAnagrams'; // Adjust the endpoint accordingly
+            }
+
+            // Set the input value and submit the form
+            form.elements['inputWord'].value = wordInput;
+            form.submit();
+        }
+    </script>
+
+
+</div>
+
+
+
+</body>
 </html>
