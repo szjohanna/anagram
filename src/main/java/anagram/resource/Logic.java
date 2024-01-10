@@ -2,6 +2,9 @@ package anagram.resource;
 
 import anagram.model.Model;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class Logic {
 
     static void printDistinctPermutations(String str, String ans) {
@@ -34,5 +37,30 @@ public class Logic {
         }
 
     }
+
+    static void checkForAnagrams() throws Exception {
+
+        for(int i = 0; i < Model.getAllpermutations().size(); i++) {
+
+            String baseUrlPath = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+
+            String urlPath = baseUrlPath + Model.getAllpermutations().get(i);
+            System.out.println("This is the URL PATH: "+urlPath);
+            URL url = new URL(urlPath);
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.connect();
+
+            int responseCode = conn.getResponseCode();
+            System.out.println("This is the responsecode: "+responseCode);
+            if (responseCode == 200) {
+                Model.getAnagrams().add(Model.getAllpermutations().get(i));
+            }
+
+        }
+
+    }
+
 
 }

@@ -1,5 +1,7 @@
 package anagram.resource;
 
+import anagram.model.Model;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -12,9 +14,19 @@ public class AnagramEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response checkForAnagarams() {
+    public Response checkForAnagarams() throws Exception {
 
-        return Response.ok("test").build();
+
+        //Create the permutation List
+        String word = "tool";
+        Model.getAllpermutations().clear();
+        new Logic().printDistinctPermutations(word, "");
+
+        //Call method that checks for anagrams -> anagrams List
+        Logic.checkForAnagrams();
+        //Loop through anagrams List and get info of each -> save to anagraminfo List
+
+        return Response.ok(Model.getAnagrams()).build();
     }
 
 
