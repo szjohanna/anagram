@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Model {
 
-
     private static ArrayList<Object> allpermutations = new ArrayList<>();
     private static ArrayList<Object> anagrams = new ArrayList<>();
     private static ArrayList<Object> anagramdata = new ArrayList<>();

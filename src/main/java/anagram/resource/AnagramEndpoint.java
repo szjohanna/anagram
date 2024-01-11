@@ -16,14 +16,13 @@ public class AnagramEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkForAnagarams(@QueryParam("inputWord") String word) throws Exception {
 
-
         //Create the permutation List
         Model.getAllpermutations().clear();
         new Logic().printDistinctPermutations(word, "");
 
-        //Call method that checks for anagrams -> anagrams List
+        //Call method that checks for anagrams -> create anagrams List
         Logic.checkForAnagrams();
-        //Loop through anagrams List and get info of each -> save to anagraminfo List
+        //Loop through anagrams List and get info of each -> save to anagramdata List
         Logic.filterData();
 
         return Response.ok(Model.getAnagramdata()).build();

@@ -16,10 +16,10 @@ public class PermutationEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkPermutations(@QueryParam("inputWord") String word) {
 
-        Model.getAllpermutations().clear();
+        Model.getAllpermutations().clear(); //if rerun: previous values should be deleted
         new Logic().printDistinctPermutations(word, "");
         return Response.ok(Model.getAllpermutations()).build();
-    }
 
+    }
 
 }
